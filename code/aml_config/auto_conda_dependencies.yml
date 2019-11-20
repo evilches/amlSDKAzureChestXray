@@ -1,0 +1,35 @@
+# Conda environment specification. The dependencies defined in this file will
+# be automatically provisioned for runs with userManagedDependencies=False.
+
+# Details about the Conda environment file format:
+# https://conda.io/docs/user-guide/tasks/manage-environments.html#create-env-file-manually
+
+name: project_environment
+dependencies:
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- python=3.6
+
+- pip:
+    # Required packages for AzureML execution, history, and data preparation.
+  - azureml-defaults
+  - scikit-image
+  - tensorflow
+  - tensorflow-tensorboard
+  - matplotlib
+  - numpy==1.14.5
+  - torchvision
+  - git+git://github.com/keras-team/keras.git
+  - git+https://github.com/aleju/imgaug
+  - git+https://www.github.com/keras-team/keras-contrib.git
+  - http://download.pytorch.org/whl/cu90/torch-0.4.0-cp36-cp36m-linux_x86_64.whl
+- h5py
+- notebook=5.6.0
+- opencv
+- pygpu
+- pyyaml
+- tqdm
+- imageio
+channels:
+- conda-forge
+- anaconda
